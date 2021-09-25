@@ -23,10 +23,48 @@ void Contact::fill_contact(void)
 	st cout << "Your darkest secret: ";
 	st cin >> this->darkest_secret;
 }
+st string Contact::get_phone_number(void) { return this->darkest_secret; }
 
-st string Contact::get_first_name(void) { return this->first_name; }
-st string Contact::get_last_name(void) { return this->last_name; }
-st string Contact::get_nickname(void) { return this->nickname; }
+st string Contact::get_darkest_secret(void) { return this->darkest_secret; }
+
+st string Contact::get_first_name(bool trun) {
+	st string str;
+
+	if (this->first_name.length() <= 10 || !trun)
+		str = this->first_name;
+	else
+	{
+		str = this->first_name.substr(0, 10);
+		str[9] = '.';
+	}
+	return str;
+}
+
+st string Contact::get_last_name(bool trun) {
+	st string str;
+
+	if (this->last_name.length() <= 10 || !trun)
+		str = this->last_name;
+	else
+	{
+		str = this->last_name.substr(0, 10);
+		str[9] = '.';
+	}
+	return str;
+}
+
+st string Contact::get_nickname(bool trun) {
+	st string str;
+
+	if (this->nickname.length() <= 10 || !trun)
+		str = this->nickname;
+	else
+	{
+		str = this->nickname.substr(0, 10);
+		str[9] = '.';
+	}
+	return str;
+}
 
 Phonebook::Phonebook()
 {
@@ -46,7 +84,7 @@ int    Phonebook::get_num_contacts(void)
 
 void    Phonebook::add_contact(void)
 {
-	if (this->num_contacts < 7)
+	if (this->num_contacts < 8)
 	{
 		this->contacts[this->num_contacts].fill_contact();
 		this->num_contacts += 1;
@@ -55,20 +93,58 @@ void    Phonebook::add_contact(void)
 		st cout << "Can't add more contacts" << st endl;
 }
 
-void    Phonebook::search(void)
+void	Phonebook::display(void)
 {
-	// 4 columns
-	// Each column must be 10 chars wide
-	// Printf first columns
-	st cout << "index" << st string(5, ' ') << '|';
-	st cout << "first name" << "|";
-	st cout << "last name" << " |";
-	st cout << "nickname" << "  |" << st endl;
+	st cout << st setw(10) << "index";
+	st cout << '|';
+	st cout << st setw(10) << "first name";
+	st cout << "|";
+	st cout << st setw(10) << "last name";
+	st cout << "|";
+	st cout << st setw(10) << "nickname";
+	st cout << "|" << st endl;
 	for (int i = 0; i < this->num_contacts; i++)
 	{
-		st cout << i << st string(9, ' ') << '|';
-		st cout << this->contacts[i].get_first_name() << '|';
-		st cout << this->contacts[i].get_last_name() << '|';
-		st cout << this->contacts[i].get_nickname() << '|' << st endl;
+		st cout << st setw(10) << i;
+		st cout << '|';
+		st cout << st setw(10) << this->contacts[i].get_first_name(true);
+		st cout << '|';
+		st cout << st setw(10) << this->contacts[i].get_last_name(true);
+		st cout << '|';
+		st cout << st setw(10) << this->contacts[i].get_nickname(true);
+		st cout << '|' << st endl;
 	}
+}
+
+void	Phonebook::display_everthing(int index)
+{
+	st cout << "First name:\t" << this->contacts[index].get_first_name(false) << st endl;
+	st cout << "Last name:\t" << this->contacts[index].get_last_name(false) << st endl;
+	st cout << "Nickname:\t" << this->contacts[index].get_nickname(false) << st endl;
+	st cout << "Phone number:\t" << this->contacts[index].get_phone_number() << st endl;
+	st cout << "Darkest secret:\t" <<  this->contacts[index].get_darkest_secret() << st endl;
+}
+
+void    Phonebook::search(void)
+{
+	st string	tmp;
+	int			index;
+
+	this->display();
+
+	st cout << "index: ";
+	st cin >> tmp;
+
+	if (tmp[0]  > '9' || tmp[0] < '0')
+	{
+		st cout << "Invalid index" << st endl;
+		return ;
+	}
+	st stringstream(tmp) >> index;
+	if (index > num_contacts)
+	{
+		st cout << "Index out of range" << st endl;
+		return ;
+	}
+	this->display_everthing(index);
 }
