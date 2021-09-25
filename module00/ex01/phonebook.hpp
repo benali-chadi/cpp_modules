@@ -39,7 +39,8 @@ class Phonebook {
 		int		num_contacts;
 
 		void	display(void);
-		void	display_everthing(int index);
+		void	set_index(void);
+		void	display_by_index(int index);
 };
 
 #endif

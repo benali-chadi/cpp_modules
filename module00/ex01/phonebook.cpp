@@ -116,7 +116,7 @@ void	Phonebook::display(void)
 	}
 }
 
-void	Phonebook::display_everthing(int index)
+void	Phonebook::display_by_index(int index)
 {
 	st cout << "First name:\t" << this->contacts[index].get_first_name(false) << st endl;
 	st cout << "Last name:\t" << this->contacts[index].get_last_name(false) << st endl;
@@ -125,26 +125,28 @@ void	Phonebook::display_everthing(int index)
 	st cout << "Darkest secret:\t" <<  this->contacts[index].get_darkest_secret() << st endl;
 }
 
-void    Phonebook::search(void)
+void	Phonebook::set_index(void)
 {
 	st string	tmp;
 	int			index;
 
-	this->display();
-
 	st cout << "index: ";
 	st cin >> tmp;
 
-	if (tmp[0]  > '9' || tmp[0] < '0')
+	st stringstream(tmp) >> index;
+	if (index >= 0 && index < num_contacts)
+		this->display_by_index(index);
+	else
 	{
 		st cout << "Invalid index" << st endl;
-		return ;
+		if (num_contacts > 0)
+			set_index();
 	}
-	st stringstream(tmp) >> index;
-	if (index > num_contacts)
-	{
-		st cout << "Index out of range" << st endl;
-		return ;
-	}
-	this->display_everthing(index);
+}
+
+void    Phonebook::search(void)
+{
+	this->display();
+
+	this->set_index();
 }
