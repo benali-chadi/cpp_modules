@@ -1,6 +1,5 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
-# define st std::
 #include <iostream>
 #include <iomanip>
 #include <sstream> 
@@ -11,18 +10,18 @@ class Contact {
 		~Contact();
 
 		void	fill_contact(void);
-		st string	get_first_name(bool trun);
-		st string	get_last_name(bool trun);
-		st string	get_nickname(bool trun);
-		st string	get_phone_number(void);
-		st string	get_darkest_secret(void);
+		std::string	get_first_name(bool trun);
+		std::string	get_last_name(bool trun);
+		std::string	get_nickname(bool trun);
+		std::string	get_phone_number(void);
+		std::string	get_darkest_secret(void);
 
 	private:
-		st string	first_name;
-		st string	last_name;
-		st string	nickname;
-		st string	phone_number;
-		st string	darkest_secret;
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_number;
+		std::string	_darkest_secret;
 };
 
 class Phonebook {

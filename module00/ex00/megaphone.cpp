@@ -1,10 +1,10 @@
 #include <iostream>
-# define st std::
+# define std::std::
 
 int main(int ac, char **av)
 {
     if (ac == 1)
-        st cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << st endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     else
     {
         for (int i = 1; av[i]; i++)
@@ -12,7 +12,7 @@ int main(int ac, char **av)
             {
                 if (av[i][j] >= 'a' && av[i][j] <= 'z')
                     av[i][j] -= 32;
-                st cout << av[i][j];
+                std::cout << av[i][j];
             }
     }
     return (0);
