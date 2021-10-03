@@ -9,7 +9,7 @@ class Contact {
 		Contact();
 		~Contact();
 
-		void	fill_contact(void);
+		void		fill_contact(void);
 		std::string	get_first_name(bool trun);
 		std::string	get_last_name(bool trun);
 		std::string	get_nickname(bool trun);
@@ -29,17 +29,18 @@ class Phonebook {
 		Phonebook();
 		~Phonebook();
 	
-		void	add_contact(void);
-		void	search(void);
-		int		get_num_contacts(void);
+		void		add_contact(void);
+		void		search(void);
+		int			get_num_contacts(void);
 
 	private:
-		Contact contacts[8];
-		int		num_contacts;
+		Contact _contacts[8];
+		int		_num_contacts;
+		int		_oldest_cntct;
 
-		void	display(void);
-		void	set_index(void);
-		void	display_by_index(int index);
+		void		display(void);
+		void		set_index(void);
+		void		display_by_index(int index);
 };
 
 #endif

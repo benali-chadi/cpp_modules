@@ -30,7 +30,8 @@ std::string Contact::get_phone_number(void) { return this->_phone_number; }
 
 std::string Contact::get_darkest_secret(void) { return this->_darkest_secret; }
 
-std::string Contact::get_first_name(bool trun) {
+std::string Contact::get_first_name(bool trun)
+{
 	std::string str;
 
 	if (this->_first_name.length() <= 10 || !trun)
@@ -43,7 +44,8 @@ std::string Contact::get_first_name(bool trun) {
 	return str;
 }
 
-std::string Contact::get_last_name(bool trun) {
+std::string Contact::get_last_name(bool trun)
+{
 	std::string str;
 
 	if (this->_last_name.length() <= 10 || !trun)
@@ -56,7 +58,8 @@ std::string Contact::get_last_name(bool trun) {
 	return str;
 }
 
-std::string Contact::get_nickname(bool trun) {
+std::string Contact::get_nickname(bool trun)
+{
 	std::string str;
 
 	if (this->_nickname.length() <= 10 || !trun)
@@ -71,7 +74,8 @@ std::string Contact::get_nickname(bool trun) {
 
 Phonebook::Phonebook()
 {
-	this->num_contacts = 0;
+	this->_num_contacts = 0;
+	this->_oldest_cntct = 0;
 	return ;
 }
 
@@ -80,23 +84,34 @@ Phonebook::~Phonebook()
 	return ;
 }
 
-int    Phonebook::get_num_contacts(void)
+int			Phonebook::get_num_contacts(void)
 {
-	return this->num_contacts;
+	return this->_num_contacts;
 }
 
-void    Phonebook::add_contact(void)
+void    	Phonebook::add_contact(void)
 {
-	if (this->num_contacts < 8)
+	if (this->_num_contacts < 8)
 	{
-		this->contacts[this->num_contacts].fill_contact();
-		this->num_contacts += 1;
+		this->_contacts[this->_num_contacts].fill_contact();
+		this->_num_contacts++;
 	}
 	else
-		std::cout << "Can't add more contacts" << std::endl;
+	{
+		if (this->_oldest_cntct < 8)
+		{
+			this->_contacts[this->_oldest_cntct].fill_contact();
+			this->_oldest_cntct++;
+		}
+		else
+		{
+			this->_oldest_cntct = 0;
+			this->_contacts[this->_oldest_cntct].fill_contact();
+		}
+	}
 }
 
-void	Phonebook::display(void)
+void		Phonebook::display(void)
 {
 	std::cout << std::setw(10) << "index";
 	std::cout << '|';
@@ -106,29 +121,29 @@ void	Phonebook::display(void)
 	std::cout << "|";
 	std::cout << std::setw(10) << "nickname";
 	std::cout << "|" << std::endl;
-	for (int i = 0; i < this->num_contacts; i++)
+	for (int i = 0; i < this->_num_contacts; i++)
 	{
 		std::cout << std::setw(10) << i;
 		std::cout << '|';
-		std::cout << std::setw(10) << this->contacts[i].get_first_name(true);
+		std::cout << std::setw(10) << this->_contacts[i].get_first_name(true);
 		std::cout << '|';
-		std::cout << std::setw(10) << this->contacts[i].get_last_name(true);
+		std::cout << std::setw(10) << this->_contacts[i].get_last_name(true);
 		std::cout << '|';
-		std::cout << std::setw(10) << this->contacts[i].get_nickname(true);
+		std::cout << std::setw(10) << this->_contacts[i].get_nickname(true);
 		std::cout << '|' << std::endl;
 	}
 }
 
 void	Phonebook::display_by_index(int index)
 {
-	std::cout << "First name:\t" << this->contacts[index].get_first_name(false) << std::endl;
-	std::cout << "Last name:\t" << this->contacts[index].get_last_name(false) << std::endl;
-	std::cout << "nickname:\t" << this->contacts[index].get_nickname(false) << std::endl;
-	std::cout << "Phone number:\t" << this->contacts[index].get_phone_number() << std::endl;
-	std::cout << "Darkest secret:\t" <<  this->contacts[index].get_darkest_secret() << std::endl;
+	std::cout << "First name:\t" << this->_contacts[index].get_first_name(false) << std::endl;
+	std::cout << "Last name:\t" << this->_contacts[index].get_last_name(false) << std::endl;
+	std::cout << "nickname:\t" << this->_contacts[index].get_nickname(false) << std::endl;
+	std::cout << "Phone number:\t" << this->_contacts[index].get_phone_number() << std::endl;
+	std::cout << "Darkest secret:\t" <<  this->_contacts[index].get_darkest_secret() << std::endl;
 }
 
-bool	check_tmp(std::string tmp)
+bool		check_tmp(std::string tmp)
 {
 	for (int i = 0; tmp[i]; i++)
 	{
@@ -140,7 +155,7 @@ bool	check_tmp(std::string tmp)
 	return 1;
 }
 
-void	Phonebook::set_index(void)
+void		Phonebook::set_index(void)
 {
 	std::string	tmp;
 	int			index;
@@ -149,17 +164,17 @@ void	Phonebook::set_index(void)
 	std::cin >> tmp;
 
 	std::stringstream(tmp) >> index;
-	if (index >= 0 && index < num_contacts && check_tmp(tmp))
+	if (index >= 0 && index < _num_contacts && check_tmp(tmp))
 		this->display_by_index(index);
 	else
 	{
 		std::cout << "Invalid index" << std::endl;
-		if (num_contacts > 0)
+		if (_num_contacts > 0)
 			set_index();
 	}
 }
 
-void    Phonebook::search(void)
+void    	Phonebook::search(void)
 {
 	this->display();
 
