@@ -39,26 +39,15 @@ int main(int ac, char **av)
 
 	while (std::getline(org_file, line))
 	{
-		for (unsigned long i = 0; i < line.length() && s1.length() < line.length(); i += s1.length())
+		int index = line.find(s1);
+		while (index >= 0)
 		{
-			std::string sub = line.substr(i, i + s1.length());
-			if (!s1.compare(sub))
-				// replace s1 by s2 in line
-				for (unsigned long j = i, k = 0, l = 0;
-					j < line.length() && (k < s1.length() || l < s2.length());
-					j++, k++, l++)
-				{
-					if (k < s1.length() && l < s2.length())
-						line[j] = s2[l];
-					else if (k >= s1.length())
-						line.insert(j, s2[l], 1);
-					else if (l >= s2.length())
-						line.erase(j);
-				}
+			line.erase(index, s1.length());
+			line.insert(index, s2);
+			index = line.find(s1);
 		}
 		rep_file << line;
 	}
 
-	
 	return 0;
 }
