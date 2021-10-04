@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-int	read_args(char **av, std::ifstream	&org_file, 
+int		read_args(char **av, std::ifstream	&org_file, 
 	std::ofstream	&rep_file, std::string &s1, std::string &s2)
 {
 	std::string		rep_filename;
@@ -18,6 +18,16 @@ int	read_args(char **av, std::ifstream	&org_file,
 		return 0;
 	}
 	return 1;
+}
+
+void	ft_replace(std::string &line, int index, std::string s1, std::string s2)
+{
+	while (index >= 0)
+	{
+		line.erase(index, s1.length());
+		line.insert(index, s2);
+		index = line.find(s1);
+	}
 }
 
 int main(int ac, char **av)
@@ -40,12 +50,7 @@ int main(int ac, char **av)
 	while (std::getline(org_file, line))
 	{
 		int index = line.find(s1);
-		while (index >= 0)
-		{
-			line.erase(index, s1.length());
-			line.insert(index, s2);
-			index = line.find(s1);
-		}
+		ft_replace(line, index, s1, s2);
 		rep_file << line;
 	}
 
