@@ -8,14 +8,13 @@ class Karen {
 		void	info(void);
 		void	warning(void);
 		void	error(void);
-		void	(Karen::*_funcs[4])(void);
+
+		int	get_index(std::string levels[4], std::string level);
 	
 	public:
 		Karen();
 		~Karen();
 		void	complain(std::string level);
 };
-
-int	get_index(std::string levels[4], std::string level);
 
 #endif

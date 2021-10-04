@@ -4,7 +4,7 @@ C++ = clang++
 
 NAME = karen
 
-SRC = main.cpp karen.cpp
+SRC = main.cpp Karen.cpp
 
 all : $(NAME)
 
