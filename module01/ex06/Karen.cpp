@@ -60,7 +60,6 @@ void	Karen::complain(std::string level)
 {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void	(Karen::*funcs[4])(void);
-	// int			index;
 
 	funcs[0] = &Karen::debug;
 	funcs[1] = &Karen::info;
@@ -68,23 +67,20 @@ void	Karen::complain(std::string level)
 	funcs[3] = &Karen::error;
 	switch (compare(level))
 	{
-	case 1:
-		(this->*funcs[0])();
-	
-	case 2:
-		(this->*funcs[1])();
-	
-	case 3:
-		(this->*funcs[2])();
-	
-	case 4:
-		(this->*funcs[3])();
-		break;
-	default:
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		break;
+		case 1:
+			(this->*funcs[0])();
+		
+		case 2:
+			(this->*funcs[1])();
+		
+		case 3:
+			(this->*funcs[2])();
+		
+		case 4:
+			(this->*funcs[3])();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
-	// index = get_index(levels, level);
-	// if (index >= 0)
-	// (this->*funcs[index])();
 }

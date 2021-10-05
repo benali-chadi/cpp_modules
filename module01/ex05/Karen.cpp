@@ -55,5 +55,5 @@ void	Karen::complain(std::string level)
 	funcs[3] = &Karen::error;
 	index = get_index(levels, level);
 	if (index >= 0)
-	(this->*funcs[index])();
+		(this->*funcs[index])();
 }

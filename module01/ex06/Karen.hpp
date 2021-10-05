@@ -9,7 +9,7 @@ class Karen {
 		void	warning(void);
 		void	error(void);
 
-		int	get_index(std::string levels[4], std::string level);
+		int		get_index(std::string levels[4], std::string level);
 	
 	public:
 		Karen();
