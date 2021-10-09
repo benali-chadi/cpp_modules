@@ -1,12 +1,6 @@
 #include "Karen.hpp"
 
-Karen::Karen() {	
-	// _funcs[0] = &Karen::debug;
-	// _funcs[1] = &Karen::info;
-	// _funcs[2] = &Karen::warning;
-	// _funcs[3] = &Karen::error;
-	return;
-}
+Karen::Karen() {	return;	}
 
 Karen::~Karen() {	return;	}
 
