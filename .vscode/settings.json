@@ -82,6 +82,7 @@
         "cinttypes": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "stack": "cpp"
     }
 }
