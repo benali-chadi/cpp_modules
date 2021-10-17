@@ -10,7 +10,7 @@ ClapTrap::ClapTrap(): _Name(""), _Hitpoints(10), _Energy_points(10), _Attack_dam
 	return ;
 }
 
-ClapTrap::ClapTrap(std::string const name): _Name(name), _Hitpoints(10), _Energy_points(10), _Attack_damage(0)
+ClapTrap::ClapTrap(std::string name): _Name(name), _Hitpoints(10), _Energy_points(10), _Attack_damage(0)
 {
 	std::cout << "Contructor called" << std::endl;
 	return ;
