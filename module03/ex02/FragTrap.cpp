@@ -1,41 +1,42 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-	std::cout << "Scavtrap default constructor called" << std::endl;
+	std::cout << "FragTrap default constructor called" << std::endl;
 	this->set_name("");
 	this->set_hitpoints(100);
-	this->set_energy_points(50);
-	this->set_attack_damage(20);
+	this->set_energy_points(100);
+	this->set_attack_damage(30);
 	return ;
 }
 
-ScavTrap::ScavTrap( const ScavTrap & src )
+
+FragTrap::FragTrap( const FragTrap & src )
 {
-	std::cout << "Scavtrap copy constructor called" << std::endl;
+	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = src;
 }
 
-ScavTrap::ScavTrap(std::string const name)
+FragTrap::FragTrap(std::string const name)
 {
-	std::cout << "Scavtrap constructor called" << std::endl;
+	std::cout << "FragTrap constructor called" << std::endl;
 	this->set_name(name);
 	this->set_hitpoints(100);
-	this->set_energy_points(50);
-	this->set_attack_damage(20);
+	this->set_energy_points(100);
+	this->set_attack_damage(30);
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "Scavtrap Destructor called" << std::endl;
+	std::cout << "FragTrap Destructor called" << std::endl;
 }
 
 
@@ -43,24 +44,25 @@ ScavTrap::~ScavTrap()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
+FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 {
-	std::cout << "Scavtrap assignation operator called" << std::endl;
+	std::cout << "FragTrap assignation operator called" << std::endl;
 	this->set_name(rhs.get_name());
 	this->set_hitpoints(rhs.get_Hitpoints());
 	this->set_energy_points(rhs.get_Energy_points());
 	this->set_attack_damage(rhs.get_Attack_damage());
-
 	return *this;
 }
+
+
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void					ScavTrap::guardGate(void)
+void					FragTrap::highFivesGuys(void)
 {
-	std::cout << "ScavTrap " << this->get_name() << " have enetred in Gate keeper mode" << std::endl;
+	std::cout << "Let's have a high five!!! " << std::endl;
 }
 
 /*

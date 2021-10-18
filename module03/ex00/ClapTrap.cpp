@@ -6,19 +6,19 @@
 
 ClapTrap::ClapTrap(): _Name(""), _Hitpoints(10), _Energy_points(10), _Attack_damage(0)
 {
-	std::cout << "Default contructor called" << std::endl;
+	std::cout << "ClapTrap Default contructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(std::string const name): _Name(name), _Hitpoints(10), _Energy_points(10), _Attack_damage(0)
 {
-	std::cout << "Contructor called" << std::endl;
+	std::cout << "ClapTrap Contructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src )
 {
-	std::cout << "Copy contructor called" << std::endl;
+	std::cout << "ClapTrap Copy contructor called" << std::endl;
 	*this = src;
 	return ;
 }
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor Called" << std::endl;
+	std::cout << "ClapTrap Destructor Called" << std::endl;
 }
 
 
@@ -40,7 +40,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "ClapTrap Assignation operator called" << std::endl;
 	this->_Name = rhs.get_name();
 	this->_Hitpoints = rhs.get_Hitpoints();
 	this->_Energy_points = rhs.get_Energy_points();
