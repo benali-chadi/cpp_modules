@@ -32,5 +32,7 @@ int main()
 	d.beRepaired(13);
 	d.guardGate();
 	d.highFivesGuys();
+
+	std::cout << std::endl;
 	return (0);
 }

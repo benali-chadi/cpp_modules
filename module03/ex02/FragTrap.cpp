@@ -65,6 +65,11 @@ void					FragTrap::highFivesGuys(void)
 	std::cout << "Let's have a high five!!! " << std::endl;
 }
 
+void					FragTrap::attack(std::string const & target)
+{
+	std::cout << "FragTrap " << this->get_name() << " attack " << target << " causing " << this->get_Hitpoints() << " points of damage!" << std::endl;
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

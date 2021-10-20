@@ -14,5 +14,6 @@ int main()
 	s.beRepaired(10);
 	s.guardGate();
 
+	std::cout << std::endl;
 	return (0);
 }

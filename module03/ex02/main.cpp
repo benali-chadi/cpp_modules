@@ -25,5 +25,6 @@ int main()
 	f.beRepaired(13);
 	f.highFivesGuys();
 
+	std::cout << std::endl;
 	return (0);
 }

@@ -10,7 +10,7 @@ ClapTrap::ClapTrap(): _Name(""), _Hitpoints(10), _Energy_points(10), _Attack_dam
 	return ;
 }
 
-ClapTrap::ClapTrap(std::string name): _Name(name), _Hitpoints(10), _Energy_points(10), _Attack_damage(0)
+ClapTrap::ClapTrap(std::string const name): _Name(name), _Hitpoints(10), _Energy_points(10), _Attack_damage(0)
 {
 	std::cout << "ClapTrap Contructor called" << std::endl;
 	return ;
@@ -60,13 +60,13 @@ void					ClapTrap::attack(std::string const & target)
 
 void					ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << this->get_name() << " took damage of the amount of " << amount << std::endl;
+	std::cout << "Trap " << this->get_name() << " took damage of the amount of " << amount << std::endl;
 	this->_Attack_damage += amount;
 }
 
 void					ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "ClapTap " << this->get_name() << " got repaired by the amount of " << amount << std::endl;
+	std::cout << "Trap " << this->get_name() << " got repaired by the amount of " << amount << std::endl;
 	this->_Attack_damage -= amount;
 }
 

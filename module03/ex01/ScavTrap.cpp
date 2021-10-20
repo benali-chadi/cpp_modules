@@ -63,6 +63,11 @@ void					ScavTrap::guardGate(void)
 	std::cout << "ScavTrap " << this->get_name() << " have enetred in Gate keeper mode" << std::endl;
 }
 
+void					ScavTrap::attack(std::string const & target)
+{
+	std::cout << "ScavTrap " << this->get_name() << " attack " << target << " causing " << this->get_Hitpoints() << " points of damage!" << std::endl;
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

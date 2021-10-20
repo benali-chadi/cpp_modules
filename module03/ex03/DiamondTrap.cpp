@@ -64,6 +64,9 @@ void					DiamondTrap::whoAmI(void)
 	std::cout << "DiamondTrap name: " << this->get_name() << " ClapTrap name: " << ClapTrap::get_name() << std::endl;
 }
 
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
 
 void					DiamondTrap::set_name(std::string const name)
 {
@@ -74,11 +77,5 @@ std::string				DiamondTrap::get_name(void) const
 {
 	return this->_Name;
 }
-
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 
 /* ************************************************************************** */

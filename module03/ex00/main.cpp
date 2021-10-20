@@ -8,5 +8,6 @@ int main()
 	a.takeDamage(10);
 	a.beRepaired(14);
 
+	std::cout << std::endl;
 	return (0);
 }
