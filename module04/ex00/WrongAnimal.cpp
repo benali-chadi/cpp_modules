@@ -22,7 +22,7 @@ WrongAnimal::WrongAnimal( const WrongAnimal & src )
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal Copy Destructor called" << std::endl;
+	std::cout << "WrongAnimal Destructor called" << std::endl;
 }
 
 

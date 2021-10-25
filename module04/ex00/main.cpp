@@ -22,5 +22,12 @@ int main()
 	meta->makeSound();
 	c->makeSound();
 
+	std::cout << std::endl;
+
+	delete meta;
+	delete j;
+	delete i;
+	delete c;
+
 	return 0;
 }

@@ -24,7 +24,7 @@ Cat::Cat( const Cat & src )
 
 Cat::~Cat()
 {
-	std::cout << "Cat Copy Destructor called" << std::endl;
+	std::cout << "Cat Destructor called" << std::endl;
 }
 
 

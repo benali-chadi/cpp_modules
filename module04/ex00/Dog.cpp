@@ -24,7 +24,7 @@ Dog::Dog( const Dog & src )
 
 Dog::~Dog()
 {
-	std::cout << "Dog Copy Destructor called" << std::endl;
+	std::cout << "Dog Destructor called" << std::endl;
 }
 
 

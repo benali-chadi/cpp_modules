@@ -22,7 +22,7 @@ Animal::Animal( const Animal & src )
 
 Animal::~Animal()
 {
-	std::cout << "Animal Copy Destructor called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 
