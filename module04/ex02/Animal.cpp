@@ -1,18 +1,17 @@
-#include "Dog.hpp"
+#include "Animal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Animal::Animal()
 {
-	std::cout << "Dog Default Constructor called" << std::endl;
-	this->type = "Dog";
+	std::cout << "Animal Default Constructor called" << std::endl;
 }
 
-Dog::Dog( const Dog & src )
+Animal::Animal( const Animal & src )
 {
-	std::cout << "Dog Copy Constructor called" << std::endl;
+	std::cout << "Animal Copy Constructor called" << std::endl;
 	*this = src;
 }
 
@@ -21,9 +20,9 @@ Dog::Dog( const Dog & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Animal::~Animal()
 {
-	std::cout << "Dog Destructor called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 
@@ -31,9 +30,9 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Animal &				Animal::operator=( Animal const & rhs )
 {
-	std::cout << "Dog Assignation operator called" << std::endl;
+	std::cout << "Animal Assignation operator called" << std::endl;
 	this->type = rhs.type;
 	return *this;
 }
@@ -42,14 +41,18 @@ Dog &				Dog::operator=( Dog const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void				Dog::makeSound() const
-{
-	std::cout << "*Bark Bark*" << std::endl;
-}
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+void					Animal::setType(std::string const type)
+{
+	this->type = type;
+}
+
+std::string				Animal::getType(void) const
+{
+	return this->type;
+}
 
 /* ************************************************************************** */

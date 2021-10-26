@@ -1,19 +1,21 @@
-#include "Dog.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Cat::Cat()
 {
-	std::cout << "Dog Default Constructor called" << std::endl;
-	this->type = "Dog";
+	std::cout << "Cat Default Constructor called" << std::endl;
+	this->type = "Cat";
+	this->brain = new Brain();
 }
 
-Dog::Dog( const Dog & src )
+Cat::Cat( const Cat & src )
 {
-	std::cout << "Dog Copy Constructor called" << std::endl;
-	*this = src;
+	std::cout << "Cat Copy Constructor called" << std::endl;
+	this->type = src.type;
+	*this->brain = *src.brain;
 }
 
 
@@ -21,9 +23,10 @@ Dog::Dog( const Dog & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << "Dog Destructor called" << std::endl;
+	std::cout << "Cat Destructor called" << std::endl;
+	delete this->brain;
 }
 
 
@@ -31,9 +34,10 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Cat &				Cat::operator=( Cat const & rhs )
 {
-	std::cout << "Dog Assignation operator called" << std::endl;
+	std::cout << "Cat Assignation operator called" << std::endl;
+	*this->brain = *rhs.brain;
 	this->type = rhs.type;
 	return *this;
 }
@@ -42,10 +46,11 @@ Dog &				Dog::operator=( Dog const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void				Dog::makeSound() const
+void				Cat::makeSound() const
 {
-	std::cout << "*Bark Bark*" << std::endl;
+	std::cout << "*Meow Meow*" << std::endl;
 }
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -1,18 +1,17 @@
-#include "Dog.hpp"
+#include "Brain.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog()
+Brain::Brain()
 {
-	std::cout << "Dog Default Constructor called" << std::endl;
-	this->type = "Dog";
+	std::cout << "Brain Default Constructor called" << std::endl;
 }
 
-Dog::Dog( const Dog & src )
+Brain::Brain( const Brain & src )
 {
-	std::cout << "Dog Copy Constructor called" << std::endl;
+	std::cout << "Brain Copy Constructor called" << std::endl;
 	*this = src;
 }
 
@@ -21,9 +20,9 @@ Dog::Dog( const Dog & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog()
+Brain::~Brain()
 {
-	std::cout << "Dog Destructor called" << std::endl;
+	std::cout << "Brain Destructor called" << std::endl;
 }
 
 
@@ -31,21 +30,18 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Brain &				Brain::operator=( Brain const & rhs )
 {
-	std::cout << "Dog Assignation operator called" << std::endl;
-	this->type = rhs.type;
+	std::cout << "Brain Assignation operator called" << std::endl;
+	std::copy(rhs.ideas, rhs.ideas + 100, this->ideas);
 	return *this;
 }
+
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void				Dog::makeSound() const
-{
-	std::cout << "*Bark Bark*" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

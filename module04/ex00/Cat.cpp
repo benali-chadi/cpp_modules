@@ -6,13 +6,12 @@
 
 Cat::Cat()
 {
-	this->type = "Cat";
 	std::cout << "Cat Default Constructor called" << std::endl;
+	this->type = "Cat";
 }
 
 Cat::Cat( const Cat & src )
 {
-	this->type = "Cat";
 	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = src;
 }

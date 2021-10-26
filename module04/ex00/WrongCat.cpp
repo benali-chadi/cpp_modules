@@ -7,13 +7,12 @@
 
 WrongCat::WrongCat()
 {
-	this->type = "WrongCat";
 	std::cout << "WrongCat Default Constructor called" << std::endl;
+	this->type = "WrongCat";
 }
 
 WrongCat::WrongCat( const WrongCat & src )
 {
-	this->type = "WrongCat";
 	std::cout << "WrongCat Copy Constructor called" << std::endl;
 	*this = src;
 }
