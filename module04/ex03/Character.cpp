@@ -1,19 +1,15 @@
-#include "Cure.hpp"
+#include "Character.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+Character::Character()
 {
-	std::cout << "Cure Default Contructor called" << std::endl;
-	this->type = "cure";
 }
 
-Cure::Cure( const Cure & src )
+Character::Character( const Character & src )
 {
-	std::cout << "Cure Copy Contructor called" << std::endl;
-	*this = src;
 }
 
 
@@ -21,9 +17,8 @@ Cure::Cure( const Cure & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Cure::~Cure()
+Character::~Character()
 {
-	std::cout << "Cure Destroctor called" << std::endl;
 }
 
 
@@ -31,26 +26,26 @@ Cure::~Cure()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cure &				Cure::operator=( Cure const & rhs )
+Character &				Character::operator=( Character const & rhs )
 {
-	this->type = "cure";
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
 	return *this;
 }
+
+std::ostream &			operator<<( std::ostream & o, Character const & i )
+{
+	//o << "Value = " << i.getValue();
+	return o;
+}
+
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria			*Cure::clone() const
-{
-	AMateria *m = new Cure(*this);
-	return m;
-}
-
-void				Cure::use(ICharacter &target)
-{
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
