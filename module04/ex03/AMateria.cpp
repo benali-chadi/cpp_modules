@@ -52,5 +52,9 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string	const &		AMateria::getType() const
+{
+	return this->type;
+}
 
 /* ************************************************************************** */

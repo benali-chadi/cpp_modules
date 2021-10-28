@@ -1,17 +1,18 @@
-#include "ICharacter.hpp"
+#include "Cure.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ICharacter::ICharacter()
+Cure::Cure()
 {
-	std::cout << "ICharacter Default Constructor called" << std::endl;
+	std::cout << "Cure Default Contructor called" << std::endl;
+	this->type = "cure";
 }
 
-ICharacter::ICharacter( const ICharacter & src )
+Cure::Cure( const Cure & src )
 {
-	std::cout << "ICharacter Copy Constructor called" << std::endl;
+	std::cout << "Cure Copy Contructor called" << std::endl;
 	*this = src;
 }
 
@@ -20,9 +21,9 @@ ICharacter::ICharacter( const ICharacter & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ICharacter::~ICharacter()
+Cure::~Cure()
 {
-	std::cout << "ICharacter Destructor called" << std::endl;
+	std::cout << "Cure Destroctor called" << std::endl;
 }
 
 
@@ -30,17 +31,26 @@ ICharacter::~ICharacter()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ICharacter &				ICharacter::operator=( ICharacter const & rhs )
+Cure &				Cure::operator=( Cure const & rhs )
 {
-	std::cout << "ICharacter Assignation operator called" << std::endl;
+	this->type = rhs.type;
 	return *this;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+AMateria			*Cure::clone() const
+{
+	AMateria *m = new Cure(*this);
+	return m;
+}
+
+void				Cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
