@@ -2,14 +2,14 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 
 C++ = clang++
 
-NAME = Animals3
+NAME = Characters
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRC = main.cpp Character.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp
 
 all : $(NAME)
 
 $(NAME) : $(SRC)
-	$(C++) $(FLAGS) $(SRC) -o $(NAME)
+	$(C++) $(SRC) -o $(NAME)
 
 clean :
 	rm -rf $(NAME)
