@@ -4,12 +4,12 @@ C++ = clang++
 
 NAME = Characters
 
-SRC = main.cpp Character.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp
 
 all : $(NAME)
 
 $(NAME) : $(SRC)
-	$(C++) $(SRC) -o $(NAME)
+	$(C++) $(FLAGS) $(SRC) -o $(NAME)
 
 clean :
 	rm -rf $(NAME)

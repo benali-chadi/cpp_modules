@@ -29,6 +29,11 @@ Character::Character( const Character & src )
 
 Character::~Character()
 {
+	std::cout << "Character Destructor called" << std::endl;
+
+	for (int i = 0; i < this->_index; i++)
+		if (this->materias[i])
+			delete this->materias[i];
 }
 
 
@@ -41,8 +46,8 @@ Character &				Character::operator=( Character const & rhs )
 	this->_name = rhs._name;
 	
 	for (int i = 0; i < 4; i++)
-		if (materias[i])
-			delete materias[i];
+		if (this->materias[i])
+			delete this->materias[i];
 	
 	this->_index = rhs._index;
 	std::copy(rhs.materias, rhs.materias + 4, this->materias);
@@ -58,19 +63,19 @@ void					Character::equip(AMateria *m)
 {
 	if (this->_index == -1)
 	{
-		this->materias[0] = m;
+		this->materias[0] = m->clone();
 		this->_index = 1;
 	}
-	else if (this->_index < 3)
+	else if (this->_index < 4)
 	{
-		this->materias[_index] = m;
+		this->materias[_index] = m->clone();
 		this->_index++;
 	}
 }
 
 void					Character::unequip(int idx)
 {
-	if (idx >= 0 && idx <= this->_index && this->_index != -1)
+	if (idx >= 0 && idx < this->_index && this->_index != -1)
 	{
 		for (int i = idx; i < 3; i++)
 			this->materias[i] = this->materias[i + 1];
@@ -80,7 +85,7 @@ void					Character::unequip(int idx)
 
 void					Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx <= this->_index && this->_index != -1)
+	if (idx >= 0 && idx < this->_index && this->_index != -1)
 		this->materias[idx]->use(target);
 }
 

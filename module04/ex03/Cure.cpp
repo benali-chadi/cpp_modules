@@ -33,6 +33,8 @@ Cure::~Cure()
 
 Cure &				Cure::operator=( Cure const & rhs )
 {
+	std::cout << "Cure Assignation Operator called" << std::endl;
+	(void)rhs;
 	this->type = "cure";
 	return *this;
 }

@@ -34,6 +34,7 @@ Ice::~Ice()
 Ice &				Ice::operator=( Ice const & rhs )
 {
 	std::cout << "Ice Assignation Operator called" << std::endl;
+	(void)rhs;
 	this->type = "ice";
 	return *this;
 }
