@@ -24,7 +24,7 @@ class Character: public ICharacter
 		virtual void use(int idx, ICharacter& target);
 
 	private:
-		AMateria	*materias[4];
+		AMateria	*_materias[4];
 		std::string	_name;
 		int			_index;
 };

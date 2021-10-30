@@ -20,6 +20,7 @@ class MateriaSource: public IMateriaSource
 		virtual AMateria*	createMateria(std::string const & type);
 
 	private:
+		AMateria *_materias[4];
 
 };
 

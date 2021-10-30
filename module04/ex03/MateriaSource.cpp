@@ -40,6 +40,10 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void						MateriaSource::learnMateria(AMateria *m)
+{
+	
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
