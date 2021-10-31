@@ -1,25 +1,33 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
 	Character madara("Madara");
 	Character hachirama("Hachirama");
+	MateriaSource sources;
 
-	madara.equip(new Ice());
-	madara.equip(new Ice());
-	madara.equip(new Ice());
-	madara.equip(new Cure());
-	madara.equip(new Ice());
+	sources.learnMateria(new Ice());
+	sources.learnMateria(new Ice());
+	sources.learnMateria(new Cure());
+	sources.learnMateria(new Cure());
+	sources.learnMateria(new Cure());
+
+	madara.equip(sources.createMateria("ice"));
+	madara.equip(sources.createMateria("ice"));
+	madara.equip(sources.createMateria("ice"));
+	madara.equip(sources.createMateria("cure"));
+	madara.equip(sources.createMateria("ice"));
 
 	std::cout << std::endl;
 
-	hachirama.equip(new Ice());
-	hachirama.equip(new Cure());
-	hachirama.equip(new Cure());
-	hachirama.equip(new Ice());
-	hachirama.equip(new Cure());
+	hachirama.equip(sources.createMateria("ice"));
+	hachirama.equip(sources.createMateria("cure"));
+	hachirama.equip(sources.createMateria("cure"));
+	hachirama.equip(sources.createMateria("ice"));
+	hachirama.equip(sources.createMateria("cure"));
 
 	std::cout << std::endl;
 

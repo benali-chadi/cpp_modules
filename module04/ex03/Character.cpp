@@ -43,6 +43,8 @@ Character::~Character()
 
 Character &				Character::operator=( Character const & rhs )
 {
+	std::cout << "MateriaSource Assignation Operator called" << std::endl;
+
 	this->_name = rhs._name;
 	
 	for (int i = 0; i < 4; i++)

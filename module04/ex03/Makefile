@@ -4,7 +4,7 @@ C++ = clang++
 
 NAME = Characters
 
-SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 
 all : $(NAME)
 
