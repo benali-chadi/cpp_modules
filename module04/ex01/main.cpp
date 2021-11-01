@@ -27,7 +27,7 @@ int main()
 		Cat tmp2;
 
 		tmp = *((Dog *)animals[4]);
-		tmp2 = *((Cat *) animals[0]);
+		tmp2 = *((Cat *)animals[0]);
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;

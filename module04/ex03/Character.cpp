@@ -22,7 +22,6 @@ Character::Character( const Character & src )
 	this->_index = src._index;
 }
 
-
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
