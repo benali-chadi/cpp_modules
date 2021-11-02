@@ -10,7 +10,7 @@ class Bureaucrat
 	public:
 
 		Bureaucrat();
-		Bureaucrat(std::string name, int grade) throw();
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat();
 
@@ -18,15 +18,17 @@ class Bureaucrat
 
 		std::string			getName() const;
 		int					getGrade() const;
-		void				incrementGrade() const throw();
-		void				decrementGrade() const throw();
+		void				incrementGrade();
+		void				decrementGrade();
 
 		class				GradeTooHighException: public std::exception {
-			const char * what() const throw();
+			public:
+				const char * what() const throw();
 		};
 
 		class				GradeTooLowException: public std::exception {
-			const char * what() const throw ();
+			public:
+				const char * what() const throw ();
 		};
 
 	private:
