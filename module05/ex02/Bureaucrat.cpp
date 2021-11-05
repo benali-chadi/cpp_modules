@@ -89,6 +89,14 @@ bool					Bureaucrat::signForm(Form const &form)
 	return false;
 }
 
+void					Bureaucrat::executeForm(Form const &form)
+{
+	if (form.execute(*this))
+		std::cout << this->_name << " executes " << form.getName() << std::endl;
+	else
+		std::cout << this->_name << " did not executes " << form.getName() << std::endl;
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

@@ -2,9 +2,10 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 
 C++ = clang++
 
-NAME = BureaucratForm
+NAME = BureaucratForms
 
-SRC = Bureaucrat.cpp main.cpp Form.cpp
+SRC =	Bureaucrat.cpp main.cpp Form.cpp \
+		ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 all : $(NAME)
 

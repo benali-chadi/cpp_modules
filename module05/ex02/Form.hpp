@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <fstream>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -25,7 +26,23 @@ class Form
 		bool				getIsSigned() const;
 
 		void				beSigned(Bureaucrat b);
-		virtual void		execute(Bureaucrat const & executor) const = 0;
+
+		class				GradeTooHighException: public std::exception {
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class				GradeTooLowException: public std::exception {
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class				NotSignedForm: public std::exception {
+			public:
+				virtual const char * what() const throw();
+		};
+
+		virtual bool		execute(Bureaucrat const & executor) const = 0;
 
 	private:
 

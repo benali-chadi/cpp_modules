@@ -1,18 +1,18 @@
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+RobotomyRequestForm::RobotomyRequestForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("ShrubberyCreationForm", 145, 137), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("RobotomyRequestForm", 72, 45), _target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src )
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
 {
 	*this = src;
 }
@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src 
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
@@ -31,18 +31,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
+RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
 {
 	this->_target = rhs._target;
 	return *this;
 }
 
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-bool								ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+bool								RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (!this->getIsSigned())
 	{
@@ -55,13 +54,12 @@ bool								ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		return false;
 	}
 	
-	std::string file_name = this-> _target + "_shrubbery";
-	std::ofstream file;
-	file.open(file_name);
+	std::cout << "* Annoying Drilling Sounds *" << std::endl;
 
-	file << TREE;
-
-	file.close();
+	if (rand() % 2)
+		std::cout << this->_target << " has been robotomized successfully" << std::endl;
+	else
+		std::cout << this->_target << " has not been robotomized" << std::endl;
 
 	return true;
 }

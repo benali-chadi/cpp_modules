@@ -38,15 +38,15 @@ class ShrubberyCreationForm: public Form
 
 	public:
 
+		ShrubberyCreationForm();
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		ShrubberyCreationForm(std::string target);
 		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
-		virtual void				execute(Bureaucrat const & executor) const;
+		virtual bool				execute(Bureaucrat const & executor) const;
 
 	private:
-		ShrubberyCreationForm();
 
 		std::string _target;
 

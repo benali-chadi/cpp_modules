@@ -1,18 +1,18 @@
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+PresidentialPardonForm::PresidentialPardonForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("ShrubberyCreationForm", 145, 137), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardonForm", 25, 5), _target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src )
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )
 {
 	*this = src;
 }
@@ -22,7 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src 
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
@@ -31,18 +31,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
+PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	this->_target = rhs._target;
 	return *this;
 }
 
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-bool								ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+bool									PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getIsSigned())
 	{
@@ -55,13 +54,7 @@ bool								ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		return false;
 	}
 	
-	std::string file_name = this-> _target + "_shrubbery";
-	std::ofstream file;
-	file.open(file_name);
-
-	file << TREE;
-
-	file.close();
+	std::cout << this->_target << " as been pardoned by Zafod Beeblebrox" << std::endl;
 
 	return true;
 }

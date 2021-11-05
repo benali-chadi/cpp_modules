@@ -1,5 +1,8 @@
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+# include "Bureaucrat.hpp"
+# include "Form.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
 int main()
 {
@@ -49,14 +52,64 @@ int main()
 	}
 
 	try {
-		Form		form("aForm", 50, 50);
-		Bureaucrat	b("b", 4);
-		Bureaucrat	c("c", 52);
+		ShrubberyCreationForm		shrubbForm("Forest");
+		RobotomyRequestForm			robotForm("Roboto");
+		PresidentialPardonForm		presidForm("Office");
+		Bureaucrat	b("B", 4);
+		Bureaucrat	c("C", 75);
+		Bureaucrat	d("D", 20);
 		
-		std::cout << "\n" << form << "\n" << b << "\n" << c << std::endl;
-		form.beSigned(b);
-		form.beSigned(c);
-		std::cout << "something" << std::endl;
+		// std::cout << "\n" << form << "\n" << b << "\n" << c << std::endl;
+		shrubbForm.beSigned(b);
+		robotForm.beSigned(c);
+		robotForm.beSigned(d);
+
+		b.executeForm(shrubbForm);
+		b.executeForm(robotForm);
+		b.executeForm(presidForm);
+
+		presidForm.beSigned(b);
+
+		c.executeForm(shrubbForm);
+		c.executeForm(robotForm);
+		c.executeForm(presidForm);
+
+		d.executeForm(shrubbForm);
+		d.executeForm(robotForm);
+		d.executeForm(presidForm);
+
+	} catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	try {
+		ShrubberyCreationForm		shrubbForm("Forest");
+		RobotomyRequestForm			robotForm("Roboto");
+		PresidentialPardonForm		presidForm("Office");
+		Bureaucrat	b("B", 4);
+		Bureaucrat	c("C", 3);
+		Bureaucrat	d("D", 5);
+		
+		// std::cout << "\n" << form << "\n" << b << "\n" << c << std::endl;
+		shrubbForm.beSigned(b);
+		robotForm.beSigned(c);
+		presidForm.beSigned(d);
+
+		b.executeForm(shrubbForm);
+		b.executeForm(robotForm);
+		b.executeForm(presidForm);
+
+		presidForm.beSigned(b);
+
+		c.executeForm(shrubbForm);
+		c.executeForm(robotForm);
+		c.executeForm(presidForm);
+
+		d.executeForm(shrubbForm);
+		d.executeForm(robotForm);
+		d.executeForm(presidForm);
+
 	} catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
