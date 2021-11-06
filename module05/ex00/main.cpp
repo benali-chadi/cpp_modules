@@ -5,29 +5,14 @@ int main()
 	try {
 		Bureaucrat b("b", 3);
 
-		try {
-			b.incrementGrade();
-			std::cout << b << std::endl;
-		} catch (std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-
-		try {
-			b.incrementGrade();
-			std::cout << b << std::endl;
-		} catch (std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+		b.incrementGrade();
+		std::cout << b << std::endl;
 		
-		try {
-			b.incrementGrade();
-			std::cout << b << std::endl;
-		} catch (std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+		b.incrementGrade();
+		std::cout << b << std::endl;
+
+		b.incrementGrade();
+		std::cout << b << std::endl;
 	} catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
@@ -46,8 +31,6 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-
-	
 
 	return 0;
 }

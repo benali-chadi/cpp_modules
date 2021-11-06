@@ -3,6 +3,7 @@
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
+# include "Intern.hpp"
 
 int main()
 {
@@ -94,6 +95,29 @@ int main()
 		d.executeForm(shrubbForm);
 		d.executeForm(robotForm);
 		d.executeForm(presidForm);
+
+	} catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Intern intern;
+		Form *s, *r, *p, *o;
+
+		if (
+			!(s = intern.makeForm("shrubbery creation", "Home")) ||
+			!(r = intern.makeForm("robotomy request", "rabotu")) ||
+			!(p = intern.makeForm("presidential pardonForm", "Big house"))
+		)
+			return 1;
+
+		std::cout << *s << "\n" << *r << "\n" << *p << std::endl;
+
+		if (!(o = intern.makeForm("not a form", "nothing")))
+			return 1;
+
+		std::cout << *o << std::endl;
 
 	} catch (std::exception &e)
 	{
