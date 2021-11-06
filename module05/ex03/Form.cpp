@@ -45,7 +45,7 @@ Form &				Form::operator=( Form const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << i.getName() << " Form is " << (i.getIsSigned() ? "signed" : "not signed");
+	o << i.getName() << " Form is " << (i.getIsSigned() ? "signed" : "not signed") << " grade to sign " << i.getGradeSign() << " grade to execute " << i.getGradeExecute();
 	return o;
 }
 
