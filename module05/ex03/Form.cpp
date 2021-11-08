@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form()
+Form::Form(): _name(""), _gradeSign(1), _gradeExecute(1), _isSigned(false)
 {
 }
 
@@ -16,11 +16,10 @@ Form::Form(std::string name, int gradeSign, int gradeExecute): _name(name), _gra
 		throw Form::GradeTooLowException();
 }
 
-Form::Form( const Form & src )
+Form::Form( const Form & src ): _gradeSign(src._gradeSign), _gradeExecute(src._gradeExecute)
 {
 	*this = src;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -37,8 +36,6 @@ Form::~Form()
 
 Form &				Form::operator=( Form const & rhs )
 {
-	this->_gradeSign = rhs._gradeSign;
-	this->_gradeExecute = rhs._gradeExecute;
 	this->_isSigned = rhs._isSigned;
 	return *this;
 }

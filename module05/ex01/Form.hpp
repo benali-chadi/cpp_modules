@@ -39,8 +39,8 @@ class Form
 		Form();
 
 		const std::string	_name;
-		int					_gradeSign;
-		int					_gradeExecute;
+		const int			_gradeSign;
+		const int			_gradeExecute;
 		bool				_isSigned;
 
 };
