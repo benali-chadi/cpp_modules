@@ -125,10 +125,10 @@ int main(int ac, char **av)
 	std::cout << std::setprecision(1) << std::fixed;
 	if (ac > 1)
 	{
-		convertToChar(av[1]);
-		convertToInt(av[1]);
-		convertToFloat(av[1]);
-		convertToDouble(av[1]);
+		convertToChar(static_cast<std::string>(av[1]));
+		convertToInt(static_cast<std::string>(av[1]));
+		convertToFloat(static_cast<std::string>(av[1]));
+		convertToDouble(static_cast<std::string>(av[1]));
 	}
 	return 0;
 }
