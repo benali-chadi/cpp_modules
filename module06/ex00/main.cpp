@@ -8,26 +8,26 @@ bool	is_digit(const std::string str)
 	return str.find_first_not_of("0123456789f.-") == std::string::npos;
 }
 
-void	convertToChar(const char *str)
+void	convertToChar(const std::string str)
 {
 	std::cout << "char : ";
 	if (is_digit(str))
 	{
-		char c = static_cast<char>(std::atoi(str));
-		if (c <= 0 || c > 126)
+		char c = static_cast<char>(std::stoi(str));
+		if (c < 32 || c > 126)
  			std::cout << "Non dispalayable" << std::endl;
 		else
 			std::cout << c << std::endl;
 	}
-	else if (std::strlen(str) == 1 && std::isprint(str[0]))
+	else if (str.size() == 1 && std::isprint(str[0]))
 		std::cout << str[0];
-	else if (std::strlen(str) == 1)
+	else if (str.size() == 1)
 		std::cout << "Non dispalayable" << std::endl;
 	else
 		std::cout << "impossible" << std::endl;
 }
 
-void	convertToInt(const char *str)
+void	convertToInt(const std::string str)
 {
 	std::cout << "int: ";
 
@@ -35,7 +35,7 @@ void	convertToInt(const char *str)
 	{
 		long long n = std::stol(str);
 		if (n <= INT_MAX && n >= INT_MIN)
-			std::cout << std::atoi(str) << std::endl;
+			std::cout << std::stoi(str) << std::endl;
 		else
 			std::cout << "impossible" << std::endl;
 	}
@@ -121,9 +121,8 @@ void	convertToDouble(const std::string str)
 
 int main(int ac, char **av)
 {
-	double d = -FLT_MAX;
+	std::string test;
 	std::cout << std::setprecision(1) << std::fixed;
-	std::cout << "d = " << d << std::endl;
 	if (ac > 1)
 	{
 		convertToChar(av[1]);
