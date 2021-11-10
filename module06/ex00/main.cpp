@@ -20,7 +20,7 @@ void	convertToChar(const std::string str)
 			std::cout << c << std::endl;
 	}
 	else if (str.size() == 1 && std::isprint(str[0]))
-		std::cout << str[0];
+		std::cout << str[0] << std::endl;
 	else if (str.size() == 1)
 		std::cout << "Non dispalayable" << std::endl;
 	else
@@ -61,11 +61,11 @@ int		compare(const std::string str, bool is_float)
 		}
 		return 1;
 	}
-	if (str.compare("nan") || str.compare("nanf"))
+	if (!str.compare("nan") || !str.compare("nanf"))
 		return 2;
-	if (str.compare("-inf") || str.compare("-inff"))
+	if (!str.compare("-inf") || !str.compare("-inff"))
 		return 3;
-	if (str.compare("+inf") || str.compare("+inff"))
+	if (!str.compare("+inf") || !str.compare("+inff"))
 		return 4;
 	return 0;
 }
