@@ -2,30 +2,21 @@
 
 int main()
 {
-    char    a_c = 'A', b_c = 'B';
-    float   a_f = 13.37, b_f = 42.24;
-    int     a_i = 5, b_i = 10;
+    int a = 2;
+    int b = 3;
 
-    std::cout << "---------|char|---------" << std::endl;
-    std::cout << "Before swap a = " << a_c << " b = " << b_c << std::endl;
-    swap(a_c, b_c);
-    std::cout << "After swap a = " << a_c << " b = " << b_c << std::endl;
-    std::cout << "Min value = " << min(a_c, b_c) << std::endl;
-    std::cout << "Max value = " << max(a_c, b_c) << std::endl;
+    ::swap( a, b);
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
 
-    std::cout << "---------|float|---------" << std::endl;
-    std::cout << "Before swap a = " << a_f << " b = " << b_f << std::endl;
-    swap(a_f, b_f);
-    std::cout << "After swap a = " << a_f << " b = " << b_f << std::endl;
-    std::cout << "Min value = " << min(a_f, b_f) << std::endl;
-    std::cout << "Max value = " << max(a_f, b_f) << std::endl;
+    std::string c = "chaine1";
+    std::string d = "chaine2";
 
-    std::cout << "---------|float|---------" << std::endl;
-    std::cout << "Before swap a = " << a_i << " b = " << b_i << std::endl;
-    swap(a_i, b_i);
-    std::cout << "After swap a = " << a_i << " b = " << b_i << std::endl;
-    std::cout << "Min value = " << min(a_i, b_i) << std::endl;
-    std::cout << "Max value = " << max(a_i, b_i) << std::endl;
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 
     return 0;
 }
