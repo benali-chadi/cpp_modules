@@ -3,7 +3,7 @@
 #include <iostream>
 
 template <typename T>
-void	iter(T *arr, int length, void (*func)(T &))
+void	iter(T *arr, int length, void (*func)(T const &))
 {
 	for (int i = 0; i < length; i++)
 	{
@@ -12,7 +12,7 @@ void	iter(T *arr, int length, void (*func)(T &))
 }
 
 template<typename T>
-void	func(T &elm)
+void	func(T const &elm)
 {
 	std::cout << elm << std::endl;
 }

@@ -9,7 +9,7 @@ class Array {
 		
 		/* Contructors and Destructors */
 
-		Array(): _size(0) { _arr = new T[1]; }
+		Array(): _size(0) { _arr = new T[0]; }
 		Array( unsigned int n ): _size(n) { _arr = new T[n]; }
 		Array( Array const & c )
 		{ 

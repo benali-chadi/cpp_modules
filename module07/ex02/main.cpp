@@ -2,6 +2,7 @@
 
 int main()
 {
+	Array<int> a;
 	size_t n = 5;
 	Array<int> arr_i(n);
 
@@ -20,6 +21,12 @@ int main()
 	std::cout << "\nArray of string " << std::endl;
 	for (size_t i = 0; i < arr_s.size(); i++)
 		std::cout << arr_s[i] << std::endl;
+	
+	try {
+		std::cout << arr_s[n] << std::endl;
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 
 	return 0;
 }
