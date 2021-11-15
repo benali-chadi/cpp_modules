@@ -5,6 +5,10 @@
 # include <string>
 # include <vector>
 # include <stdexcept>
+# include <iterator>
+# include <algorithm>
+# include <ctime>
+# include <cstdlib>
 
 class Span
 {
@@ -18,6 +22,7 @@ class Span
 		Span &		operator=( Span const & rhs );
 
 		void				addNumber( int num );
+		void				addNumber( int min, int max );
 		int					shortestSpan( void );
 		int					longestSpan( void );
 		std::vector<int>	getArr( void );

@@ -49,6 +49,18 @@ void				Span::addNumber( int num)
 	this->_arr.push_back(num);
 }
 
+int					randomNumber(int max, int min) { return std::rand() % (max - min + 1); }
+
+void				Span::addNumber( int min, int max )
+{
+	if (this->_arr.size() >= static_cast<unsigned long>(this->_n))
+		throw std::out_of_range("out of range");
+
+	std::srand (unsigned (std::time(0) ) );
+	for (int i = this->_arr.size() - 1; i < this->_n; i++)
+		this->_arr.push_back(randomNumber(max, min));
+}
+
 int					Span::longestSpan( void )
 {
 	if (this->_arr.size() < 2)
