@@ -14,15 +14,15 @@ int main()
 	}
 
 	try {
-		std::cout << easyfind(v, 2) << std::endl;
-		std::cout << easyfind(lst, 5) << std::endl;
+		easyfind(v, 2);
+		easyfind(lst, 5);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	try {
-		std::cout << easyfind(v, 9) << std::endl;
-		std::cout << easyfind(lst, 15) << std::endl;
+		easyfind(v, 9);
+		easyfind(lst, 15);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}

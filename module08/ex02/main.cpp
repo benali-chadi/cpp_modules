@@ -1,23 +1,23 @@
-#include "Mutantstack.cpp"
+#include "mutantstack.cpp"
 
 int main()
 {
-    Mutantstack<int> stack_i;
+    MutantStack<float> stack_f;
 
-    stack_i.push(5);
-    stack_i.push(10);
-    stack_i.push(20);
-    stack_i.push(3);
+    stack_f.push(13.37);
+    stack_f.push(10.04);
+    stack_f.push(20.12);
+    stack_f.push(42.24);
     
     std::cout << "-------Stack of Ints-------" << std::endl;
     std::cout << "-------METHODS-------" << std::endl;
-    std::cout << stack_i.top() << std::endl;
-    std::cout << stack_i.size() << std::endl;
+    std::cout << stack_f.top() << std::endl;
+    std::cout << stack_f.size() << std::endl;
 
-    Mutantstack<int>::iterator it = stack_i.begin();
-    Mutantstack<int>::iterator it_e = stack_i.end();
-    Mutantstack<int>::reverse_iterator rit = stack_i.rbegin();
-    Mutantstack<int>::reverse_iterator rit_e = stack_i.rend();
+    MutantStack<float>::iterator it = stack_f.begin();
+    MutantStack<float>::iterator it_e = stack_f.end();
+    MutantStack<float>::reverse_iterator rit = stack_f.rbegin();
+    MutantStack<float>::reverse_iterator rit_e = stack_f.rend();
 
     std::cout << "-------ITERATORS-------" << std::endl;
     std::cout << "  Forward Iterator" << std::endl;
@@ -28,7 +28,7 @@ int main()
         std::cout << *rit << std::endl;
 
 
-     Mutantstack<std::string> stack_s;
+     MutantStack<std::string> stack_s;
 
     stack_s.push("Something");
     stack_s.push("Another thing");
@@ -40,10 +40,10 @@ int main()
     std::cout << stack_s.top() << std::endl;
     std::cout << stack_s.size() << std::endl;
 
-    Mutantstack<std::string>::iterator its = stack_s.begin();
-    Mutantstack<std::string>::iterator its_e = stack_s.end();
-    Mutantstack<std::string>::reverse_iterator rits = stack_s.rbegin();
-    Mutantstack<std::string>::reverse_iterator rits_e = stack_s.rend();
+    MutantStack<std::string>::iterator its = stack_s.begin();
+    MutantStack<std::string>::iterator its_e = stack_s.end();
+    MutantStack<std::string>::reverse_iterator rits = stack_s.rbegin();
+    MutantStack<std::string>::reverse_iterator rits_e = stack_s.rend();
 
     std::cout << "-------ITERATORS-------" << std::endl;
     std::cout << "  Forward Iterator" << std::endl;
@@ -52,4 +52,27 @@ int main()
     std::cout << "  Reverse Iterator" << std::endl;
     for (;rits != rits_e; rits++)
         std::cout << *rits << std::endl;
+    
+    std::cout << "-------Subject tests-------" << std::endl;
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
+    MutantStack<int>::iterator it2 = mstack.begin();
+    MutantStack<int>::iterator ite2 = mstack.end();
+    ++it;
+    --it;
+    while (it2 != ite2)
+    {
+        std::cout << *it << std::endl;
+        ++it2;
+    }
+    std::stack<int> s(mstack);
+    return 0;
 }

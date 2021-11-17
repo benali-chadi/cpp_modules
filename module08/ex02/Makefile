@@ -4,7 +4,7 @@ C++ = clang++
 
 NAME = Mutantstack
 
-SRC = Mutantstack.cpp main.cpp
+SRC = mutantstack.cpp main.cpp
 
 all : $(NAME)
 

@@ -3,16 +3,15 @@
 
 #include <iostream>
 #include <iterator>
+#include <algorithm>
 
 template <typename T>
-int		easyfind(T container, int elm)
+void		easyfind(T container, int elm)
 {
-	typename T::iterator it;
-	for (it = container.begin() ;it != container.end(); it++)
-		if (*it == elm)
-			return *it;
+	if (std::find(container.begin(), container.end(), elm) == container.end())
+		throw std::invalid_argument("this container does not contain this element");
 	
-	throw std::invalid_argument("this container does not contain this element");
+	std::cout << elm << " is in this array" << std::endl;
 }
 
 #endif
