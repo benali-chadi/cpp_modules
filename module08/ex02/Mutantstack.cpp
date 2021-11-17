@@ -4,12 +4,15 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Mutantstack::Mutantstack()
+template<typename T>
+Mutantstack<T>::Mutantstack()
 {
 }
 
-Mutantstack::Mutantstack( const Mutantstack & src )
+template<typename T>
+Mutantstack<T>::Mutantstack( const Mutantstack & src )
 {
+	*this = src;
 }
 
 
@@ -17,7 +20,8 @@ Mutantstack::Mutantstack( const Mutantstack & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Mutantstack::~Mutantstack()
+template<typename T>
+Mutantstack<T>::~Mutantstack()
 {
 }
 
@@ -26,26 +30,39 @@ Mutantstack::~Mutantstack()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Mutantstack &				Mutantstack::operator=( Mutantstack const & rhs )
+template<typename T>
+void				Mutantstack<T>::operator=( Mutantstack const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
+	this->c = rhs.c;
 }
-
-std::ostream &			operator<<( std::ostream & o, Mutantstack const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+template<typename T>
+typename std::stack<T>::container_type::iterator	Mutantstack<T>::begin()
+{
+	return this->c.begin();
+}
+
+template<typename T>
+typename std::stack<T>::container_type::iterator	Mutantstack<T>::end()
+{
+	return this->c.end();
+}
+
+template<typename T>
+typename std::stack<T>::container_type::reverse_iterator	Mutantstack<T>::rbegin()
+{
+	return this->c.rbegin();
+}
+
+template<typename T>
+typename std::stack<T>::container_type::reverse_iterator	Mutantstack<T>::rend()
+{
+	return this->c.rend();
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
