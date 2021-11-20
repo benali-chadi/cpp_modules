@@ -71,13 +71,21 @@ int					Span::longestSpan( void )
 
 int					Span::shortestSpan( void )
 {
+	int min = INT_MAX;
+
 	if (this->_arr.size() < 2)
 		throw std::invalid_argument("the array is either empty or has only one element");
 
 	std::vector<int> sorted_arr = this->getArr();
 	std::sort(sorted_arr.begin(), sorted_arr.end());
 
-	return sorted_arr[1] - sorted_arr[0];
+	for (unsigned int i = 1; i < sorted_arr.size(); i++)
+	{
+		int diff = sorted_arr[i] - sorted_arr[i - 1];
+		if (diff < min)
+			min = diff;
+	}
+	return min;
 }
 
 /*
